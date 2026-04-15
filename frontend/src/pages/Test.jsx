@@ -2,7 +2,10 @@ import { useState, useEffect } from 'react';
 import { Button, Progress, Spin, Typography } from 'antd';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
+
+// 导入本地数据
+import questionsData from '../data/questions.json';
+import rappersData from '../data/rappers.json';
 
 const { Title, Text } = Typography;
 
@@ -19,13 +22,9 @@ export default function Test() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    axios.get('/api/questions').then(res => {
-      setQuestions(res.data.data);
-      setIsLoading(false);
-    }).catch(err => {
-      console.error(err);
-      setIsLoading(false);
-    });
+    // 直接从本地加载题目
+    setQuestions(questionsData);
+    setIsLoading(false);
   }, []);
 
   const handleOptionClick = (optionScores) => {
@@ -39,7 +38,7 @@ export default function Test() {
     if (currentIndex < questions.length - 1) {
       setCurrentIndex(currentIndex + 1);
     } else {
-      submitScores(newScores);
+      calculateResult(newScores);
     }
   };
 
@@ -52,14 +51,75 @@ export default function Test() {
     }
   };
 
-  const submitScores = (finalScores) => {
+  const calculateResult = (finalScores) => {
     setIsLoading(true);
-    axios.post('/api/match', { scores: finalScores }).then(res => {
-      navigate('/result', { state: { resultData: res.data.data } });
-    }).catch(err => {
-      console.error(err);
-      setIsLoading(false);
+    
+    // 复刻后端的匹配逻辑
+    const MAX_SCORES = {
+        career: 83,
+        emotion: 91,
+        authenticity: 110,
+        greed: 106,
+        brotherhood: 79
+    };
+
+    const normalize = (score, max) => {
+        if (score <= 0) return 5;
+        const baseline = max * 0.8;
+        const val = (score / baseline) * 100;
+        return Math.max(1, Math.min(100, val));
+    };
+
+    const userProfile = {
+        career: normalize(finalScores.career || 0, MAX_SCORES.career),
+        emotion: normalize(finalScores.emotion || 0, MAX_SCORES.emotion),
+        authenticity: normalize(finalScores.authenticity || 0, MAX_SCORES.authenticity),
+        greed: normalize(finalScores.greed || 0, MAX_SCORES.greed),
+        brotherhood: normalize(finalScores.brotherhood || 0, MAX_SCORES.brotherhood)
+    };
+
+    let bestMatch = null;
+    let minDistance = Infinity;
+
+    rappersData.forEach(rapper => {
+        let distance = 0;
+        const eScores = rapper.expected_scores;
+        const dimensions = ['career', 'emotion', 'authenticity', 'greed', 'brotherhood'];
+        
+        dimensions.forEach(dim => {
+            const uVal = userProfile[dim];
+            const rVal = eScores[dim] || 50;
+            distance += Math.pow(uVal - rVal, 2);
+        });
+
+        if (distance < minDistance) {
+            minDistance = distance;
+            bestMatch = rapper;
+        }
     });
+
+    const maxPossibleDistance = 50000;
+    let matchPctNum = (1 - Math.sqrt(minDistance / maxPossibleDistance)) * 100;
+    
+    // 保底逻辑
+    if (matchPctNum > 99) matchPctNum = 99.2;
+    if (matchPctNum < 85) {
+        matchPctNum = 85 + Math.random() * 10;
+    }
+
+    const matchPercentage = matchPctNum.toFixed(1);
+
+    // 模拟一个小延时增强仪式感
+    setTimeout(() => {
+      navigate('/result', { 
+        state: { 
+          resultData: {
+            rapper: bestMatch,
+            matchPercentage: matchPercentage
+          } 
+        } 
+      });
+    }, 800);
   };
 
   if (isLoading || questions.length === 0) {

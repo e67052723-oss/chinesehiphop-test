@@ -1,0 +1,326 @@
+[
+    {
+        "id": "r1",
+        "name": "Gali",
+        "description": "品味极佳，具有强烈的时尚感和先锋音乐意识，态度自我但不张狂。",
+        "traits": [
+            "时尚",
+            "品味",
+            "先锋",
+            "沉稳"
+        ],
+        "expected_scores": {
+            "career": 80,
+            "emotion": 30,
+            "authenticity": 75,
+            "greed": 50,
+            "brotherhood": 75
+        }
+    },
+    {
+        "id": "r2",
+        "name": "李大奔BENZO",
+        "description": "具有都市气息和雅痞风格，兼顾音乐与商业包装，理性且时髦。",
+        "traits": [
+            "都市",
+            "雅痞",
+            "理性",
+            "商业"
+        ],
+        "expected_scores": {
+            "career": 75,
+            "emotion": 20,
+            "authenticity": 50,
+            "greed": 65,
+            "brotherhood": 70
+        }
+    },
+    {
+        "id": "r3",
+        "name": "满舒克",
+        "description": "旋律说唱代表，情歌属性点满，不羁且圆滑舒适的质感。",
+        "traits": [
+            "旋律",
+            "浪漫",
+            "风流",
+            "不羁"
+        ],
+        "expected_scores": {
+            "career": 40,
+            "emotion": 80,
+            "authenticity": 20,
+            "greed": 100,
+            "brotherhood": 40
+        }
+    },
+    {
+        "id": "r4",
+        "name": "李京泽",
+        "description": "外在张扬跋扈但深谙游戏规则，潇洒不羁自有一套风格。",
+        "traits": [
+            "炫耀",
+            "冲动",
+            "享乐",
+            "自信"
+        ],
+        "expected_scores": {
+            "career": 85,
+            "emotion": 30,
+            "authenticity": 65,
+            "greed": 120,
+            "brotherhood": 45
+        }
+    },
+    {
+        "id": "r7",
+        "name": "MulaSakee",
+        "description": "今玄峰既立，风雷将起，愿诸君共擎此炬，照彻乐坛归正之路，见证华夏文明于失落六百年后，如凤凰浴火，再临盛世！",
+        "traits": [
+            "独特",
+            "腔调",
+            "自我",
+            "专注"
+        ],
+        "expected_scores": {
+            "career": 30,
+            "emotion": 0,
+            "authenticity": 120,
+            "greed": 50,
+            "brotherhood": 20
+        }
+    },
+    {
+        "id": "r8",
+        "name": "MC光光",
+        "description": "老派前辈，心直口快，仗义执言，拥有深厚的地下底蕴。",
+        "traits": [
+            "OG",
+            "仗义",
+            "直言",
+            "底蕴"
+        ],
+        "expected_scores": {
+            "career": 25,
+            "emotion": 60,
+            "authenticity": 60,
+            "greed": 60,
+            "brotherhood": 120
+        }
+    },
+    {
+        "id": "r10",
+        "name": "PGone",
+        "description": "技术流巅峰，曾经站在风口浪尖，性格桀骜不驯但实力毋庸置疑。",
+        "traits": [
+            "技术流",
+            "桀骜",
+            "争议",
+            "实力"
+        ],
+        "expected_scores": {
+            "career": 80,
+            "emotion": 60,
+            "authenticity": 60,
+            "greed": 85,
+            "brotherhood": 45
+        }
+    },
+    {
+        "id": "r11",
+        "name": "Rapeter",
+        "description": "技术与词汇的狂热追求者，注重说唱本身的文化底蕴与技巧钻研。",
+        "traits": [
+            "技巧",
+            "文化",
+            "狂热",
+            "钻研"
+        ],
+        "expected_scores": {
+            "career": 85,
+            "emotion": 15,
+            "authenticity": 110,
+            "greed": 25,
+            "brotherhood": 40
+        }
+    },
+    {
+        "id": "r13",
+        "name": "弹壳K9999",
+        "description": "大佬气质，根基深厚，直爽仗义且拥有掌控全局的魄力。",
+        "traits": [
+            "大佬",
+            "豪爽",
+            "掌控力",
+            "仗义"
+        ],
+        "expected_scores": {
+            "career": 85,
+            "emotion": 45,
+            "authenticity": 75,
+            "greed": 75,
+            "brotherhood": 105
+        }
+    },
+    {
+        "id": "r14",
+        "name": "盛宇",
+        "description": "以下犯上的领袖气质，街头态度明确，注重团队精神和荣誉。",
+        "traits": [
+            "领袖",
+            "街头",
+            "荣誉",
+            "团队"
+        ],
+        "expected_scores": {
+            "career": 65,
+            "emotion": 65,
+            "authenticity": 85,
+            "greed": 25,
+            "brotherhood": 105
+        }
+    },
+    {
+        "id": "r15",
+        "name": "谢宇杰",
+        "description": "敢说敢做，性格火爆 but 真诚直接，西南说唱的中坚力量。",
+        "traits": [
+            "火爆",
+            "直接",
+            "真诚",
+            "西南"
+        ],
+        "expected_scores": {
+            "career": 50,
+            "emotion": 60,
+            "authenticity": 110,
+            "greed": 30,
+            "brotherhood": 70
+        }
+    },
+    {
+        "id": "r16",
+        "name": "王以太",
+        "description": "注重旋律与思想的结合，歌词富有信仰和力量，深沉又闪亮。",
+        "traits": [
+            "旋律",
+            "信仰",
+            "扎实",
+            "闪亮"
+        ],
+        "expected_scores": {
+            "career": 75,
+            "emotion": 70,
+            "authenticity": 70,
+            "greed": 35,
+            "brotherhood": 60
+        }
+    },
+    {
+        "id": "r17",
+        "name": "王齐铭",
+        "description": "充满市井气与底层打拼的韧劲，性格幽默接地气。",
+        "traits": [
+            "市井",
+            "韧劲",
+            "接地气",
+            "幽默"
+        ],
+        "expected_scores": {
+            "career": 60,
+            "emotion": 80,
+            "authenticity": 75,
+            "greed": 45,
+            "brotherhood": 80
+        }
+    },
+    {
+        "id": "r19",
+        "name": "杨和苏",
+        "description": "健身狂魔与拼命三郎，极致的技术与努力，不屈不挠的战斗精神。",
+        "traits": [
+            "战斗",
+            "努力",
+            "力量",
+            "不屈"
+        ],
+        "expected_scores": {
+            "career": 105,
+            "emotion": 20,
+            "authenticity": 85,
+            "greed": 40,
+            "brotherhood": 25
+        }
+    },
+    {
+        "id": "r20",
+        "name": "KenRobb",
+        "description": "KenRobb is Crazy!",
+        "traits": [
+            "实验",
+            "迷幻",
+            "异类",
+            "前卫"
+        ],
+        "expected_scores": {
+            "career": 20,
+            "emotion": 100,
+            "authenticity": 110,
+            "greed": 90,
+            "brotherhood": 40
+        }
+    },
+    {
+        "id": "r21",
+        "name": "法老",
+        "description": "硬核之王，行走的人间抽象，活在自己的硬核世界与二次元中。极度真实，拥有极强的正义感与技术底蕴。",
+        "traits": [
+            "硬核",
+            "抽象",
+            "真实",
+            "技术"
+        ],
+        "expected_scores": {
+            "career": 80,
+            "emotion": 75,
+            "authenticity": 105,
+            "greed": 25,
+            "brotherhood": 80
+        }
+    },
+    {
+        "id": "r22",
+        "name": "高天佐",
+        "description": "Free-out 门面，重情重义，舞台魅力十足，兼具冷酷与温情，为了兄弟可以付出一切。",
+        "traits": [
+            "帅气",
+            "仗义",
+            "温情",
+            "魅力"
+        ],
+        "expected_scores": {
+            "career": 70,
+            "emotion": 95,
+            "authenticity": 80,
+            "greed": 45,
+            "brotherhood": 100
+        }
+    },
+    {
+        "id": "r23",
+        "name": "Asen",
+        "description": "Digi Ghetto 的“顶楼”成员，堪称中文说唱技术流与写实流的完美结合。不仅拥有顶级的事业心，更深怀“Digi 永不分家”的兄弟情义。",
+        "traits": [
+            "技术",
+            "奋斗",
+            "街头",
+            "Digi"
+        ],
+        "expected_scores": {
+            "career": 95,
+            "emotion": 65,
+            "authenticity": 100,
+            "greed": 90,
+            "brotherhood": 110
+        }
+    }
+]
