@@ -1,0 +1,124 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap');
+
+:root {
+  --bg-color: #0a0a0a;
+  --text-primary: #ffffff;
+  --text-secondary: rgba(255, 255, 255, 0.65);
+  --accent-color: #ffffff;
+  --accent-glow: rgba(255, 255, 255, 0.15);
+  --glass-bg: rgba(255, 255, 255, 0.03);
+  --glass-border: rgba(255, 255, 255, 0.08);
+  --card-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+* {
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Outfit', -apple-system, BlinkMacSystemFont, "PingFang SC", sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow: hidden; /* 防止背景光斑导致滚动条 */
+}
+
+html, body, #root {
+  height: 100%;
+  width: 100%;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+}
+
+.page-container {
+  width: 100%;
+  max-width: 480px;
+  margin: 0 auto;
+  min-height: 100vh;
+  min-height: 100dvh;
+  padding: 24px 20px;
+  background: var(--bg-color);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow-x: hidden;
+  z-index: 1;
+}
+
+/* Background Animated Blobs */
+.page-container::before {
+  content: '';
+  position: absolute;
+  top: -10%;
+  right: -10%;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(255,255,255,0.05) 0%, transparent 70%);
+  z-index: -1;
+  animation: float 20s infinite alternate;
+}
+
+@keyframes float {
+  from { transform: translate(0, 0); }
+  to { transform: translate(-50px, 50px); }
+}
+
+/* Glassmorphism Card Style */
+.glass-card {
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--glass-border);
+  border-radius: 24px;
+  padding: 24px;
+  box-shadow: var(--card-shadow);
+}
+
+/* Audio control */
+.audio-ctrl {
+  position: absolute;
+  bottom: 2rem;
+  right: 1.5rem;
+  z-index: 100;
+  cursor: pointer;
+  color: var(--text-secondary);
+  transition: all 0.3s ease;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: 50%;
+  backdrop-filter: blur(10px);
+}
+
+.audio-ctrl:hover {
+  color: var(--text-primary);
+  border-color: var(--text-secondary);
+  transform: scale(1.1);
+}
+
+/* Ant Design Overrides */
+.ant-typography {
+  color: var(--text-primary) !important;
+}
+
+.ant-btn-primary {
+  background: var(--text-primary) !important;
+  color: var(--bg-color) !important;
+  border: none !important;
+  box-shadow: 0 10px 20px rgba(255, 255, 255, 0.1) !important;
+}
+
+.ant-progress-inner {
+  background-color: rgba(255, 255, 255, 0.05) !important;
+}

@@ -1,0 +1,764 @@
+[
+  {
+    "id": 1,
+    "text": "你的演出因不可抗力即将取消，离开场还有三天，你心情很fucked up，你决定：",
+    "options": [
+      {
+        "text": "在海鲜市场出点潮牌以弥补内心的空虚，damn！",
+        "scores": {
+          "greed": 2,
+          "authenticity": 1
+        }
+      },
+      {
+        "text": "冷静下来，尝试联系其它场地，也许还有机会",
+        "scores": {
+          "career": 2,
+          "emotion": -1
+        }
+      },
+      {
+        "text": "叫bro来喝点吧",
+        "scores": {
+          "brotherhood": 10,
+          "emotion": 1
+        }
+      },
+      {
+        "text": "diss主办方并发到微博上",
+        "scores": {
+          "authenticity": 3,
+          "emotion": 2,
+          "career": 1
+        }
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "text": "你参加的音乐节阵容官宣，和你有Beef的说唱歌手赫然在列且压轴，你决定：",
+    "options": [
+      {
+        "text": "开直播直接向全世界告白：“有他没我，有我没他！”",
+        "scores": {
+          "authenticity": 3,
+          "emotion": 2
+        }
+      },
+      {
+        "text": "表现得毫不在意，并在台上大度聆听粉丝高喊“AABB牵手手”",
+        "scores": {
+          "career": 2,
+          "greed": 1
+        }
+      },
+      {
+        "text": "在粉丝群和微博疯狂抨击对方，演出当天让大家知道这天下是属于你的盛世王朝",
+        "scores": {
+          "authenticity": 2,
+          "emotion": 3
+        }
+      },
+      {
+        "text": "暗自破防并把这次失利写进歌里，君子报仇十年不晚",
+        "scores": {
+          "career": -1,
+          "emotion": 2
+        }
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "text": "写歌没灵感，朋友给你带来了不少解闷的选择，你挑挑拣拣，朝__伸手：",
+    "options": [
+      {
+        "text": "酒店房卡",
+        "scores": {
+          "greed": 3,
+          "emotion": 1
+        }
+      },
+      {
+        "text": "加料电子烟",
+        "scores": {
+          "authenticity": 2,
+          "greed": 2,
+          "emotion": 1
+        }
+      },
+      {
+        "text": "酒",
+        "scores": {
+          "emotion": 2,
+          "greed": 1
+        }
+      },
+      {
+        "text": "朋友",
+        "scores": {
+          "brotherhood": 8,
+          "greed": 1,
+          "emotion": 1
+        }
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "text": "你的其中一个暧昧对象最近很黏你，但高冷的你对她兴趣不大，某天对方质问你为什么不回消息，你：",
+    "options": [
+      {
+        "text": "你谁啊管这么宽？拉黑删除不解释",
+        "scores": {
+          "authenticity": 2,
+          "career": 15
+        }
+      },
+      {
+        "text": "“我只是在为国事困扰啊”",
+        "scores": {
+          "emotion": 2
+        }
+      },
+      {
+        "text": "坦白在做HPV检测",
+        "scores": {
+          "authenticity": 1,
+          "greed": -1
+        }
+      },
+      {
+        "text": "好声好气哄对方并约线下见面",
+        "scores": {
+          "greed": 2,
+          "emotion": 1
+        }
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "text": "你在录音棚认真工作了一天回到家，准备和女朋友上床，以下最可能让你功能障碍的话是：",
+    "options": [
+      {
+        "text": "“你一天到晚在录歌，怎么专辑还没做出来？”",
+        "scores": {
+          "career": 15,
+          "emotion": 1
+        }
+      },
+      {
+        "text": "“我今天追到我喜欢的rapper了。对了，我们只是炮友吧，你不会想多了吧。”",
+        "scores": {
+          "emotion": 3,
+          "authenticity": 1
+        }
+      },
+      {
+        "text": "“这么晚才回来？手机给我。”",
+        "scores": {
+          "authenticity": -1,
+          "emotion": 2
+        }
+      },
+      {
+        "text": "“说真的，谈了这么久，真希望回到我作为粉丝还没那么了解你的时候。”",
+        "scores": {
+          "emotion": 3,
+          "greed": 2,
+          "career": 1
+        }
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "text": "和新认识的粉丝出去约会，对方含情脉脉地问你我们现在是什么关系？你会回答：",
+    "options": [
+      {
+        "text": "说唱歌手没有确定关系的习惯",
+        "scores": {
+          "greed": 2,
+          "authenticity": 2
+        }
+      },
+      {
+        "text": "关你屁事",
+        "scores": {
+          "authenticity": 2,
+          "emotion": 15
+        }
+      },
+      {
+        "text": "都哥们儿",
+        "scores": {
+          "brotherhood": 3,
+          "greed": 1
+        }
+      },
+      {
+        "text": "你希望是什么关系？",
+        "scores": {
+          "greed": 3,
+          "emotion": 2
+        }
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "text": "节目上，你要与一名对手展开1v1的淘汰对决，环视一圈周围的同行，你决定选择：",
+    "options": [
+      {
+        "text": "底蕴深厚还没分到蛋糕的老OG",
+        "scores": {
+          "career": 2,
+          "brotherhood": -1
+        }
+      },
+      {
+        "text": "并不起眼实力未知的无名新人",
+        "scores": {
+          "greed": 8,
+          "career": -1
+        }
+      },
+      {
+        "text": "公认的比赛型选手",
+        "scores": {
+          "authenticity": 2,
+          "career": 2
+        }
+      },
+      {
+        "text": "热度极高营销号嘴里的冠军候选人",
+        "scores": {
+          "career": 1,
+          "authenticity": 2
+        }
+      }
+    ]
+  },
+  {
+    "id": 8,
+    "text": "你通过了一档说唱节目的海选，但因人数太多，节目组把你的链子收走了。你会：",
+    "options": [
+      {
+        "text": "勃然大怒！公开出Diss与节目组硬刚",
+        "scores": {
+          "authenticity": 8,
+          "emotion": 2
+        }
+      },
+      {
+        "text": "忍气吞声，此处不留爷自有留爷处",
+        "scores": {
+          "career": -1,
+          "greed": 10
+        }
+      },
+      {
+        "text": "偷偷卖惨，让营销号散播你所遭遇的黑幕",
+        "scores": {
+          "greed": 3,
+          "emotion": 1
+        }
+      },
+      {
+        "text": "都是经验，今年状态不好明年再接再厉",
+        "scores": {
+          "career": 2,
+          "emotion": -1
+        }
+      }
+    ]
+  },
+  {
+    "id": 9,
+    "text": "团队成员被网友群嘲了，超话炸开了锅，你的反应是？",
+    "options": [
+      {
+        "text": "在跑步",
+        "scores": {
+          "career": 1,
+          "emotion": 1
+        }
+      },
+      {
+        "text": "早上录歌晚上发diss",
+        "scores": {
+          "authenticity": 12,
+          "brotherhood": 2
+        }
+      },
+      {
+        "text": "做成表情包天天往团队群里发",
+        "scores": {
+          "emotion": 2,
+          "brotherhood": 1
+        }
+      },
+      {
+        "text": "网友骂的就是我",
+        "scores": {
+          "authenticity": 2,
+          "brotherhood": -1
+        }
+      }
+    ]
+  },
+  {
+    "id": 10,
+    "text": "在Club里，你一般会：",
+    "options": [
+      {
+        "text": "站在卡座上热舞撒啤酒",
+        "scores": {
+          "greed": 3,
+          "emotion": 2
+        }
+      },
+      {
+        "text": "安静自饮自酌观察众人",
+        "scores": {
+          "career": 1,
+          "emotion": 3
+        }
+      },
+      {
+        "text": "和路过的美女搭讪热聊",
+        "scores": {
+          "greed": 3,
+          "emotion": 1
+        }
+      },
+      {
+        "text": "坐在角落默默玩手机装深沉",
+        "scores": {
+          "emotion": 2,
+          "authenticity": 1
+        }
+      }
+    ]
+  },
+  {
+    "id": 11,
+    "text": "在外地演出时，你发现你被多年的好兄弟背刺了，你会：",
+    "options": [
+      {
+        "text": "不在网上耍嘴皮子了！你我两个提把刀来理工大学门口…",
+        "scores": {
+          "authenticity": 3,
+          "emotion": 15
+        }
+      },
+      {
+        "text": "发送一张忧郁氛围感帅照让大家猜测你的心情",
+        "scores": {
+          "emotion": 2,
+          "greed": 2
+        }
+      },
+      {
+        "text": "发动进修多年的绿茶技艺融进歌里写给他并说谢谢你",
+        "scores": {
+          "greed": 2,
+          "career": 2
+        }
+      },
+      {
+        "text": "为兄弟两肋插刀罢了！一声不吭当无事发生",
+        "scores": {
+          "brotherhood": 5,
+          "emotion": -2
+        }
+      }
+    ]
+  },
+  {
+    "id": 12,
+    "text": "作为新生代说唱歌手，你的穿搭一般是：",
+    "options": [
+      {
+        "text": "我不要穿新中式我就要穿潮牌",
+        "scores": {
+          "authenticity": 10,
+          "greed": 10
+        }
+      },
+      {
+        "text": "哥们从来不穿别人家的衣服自己开公司",
+        "scores": {
+          "career": 1,
+          "greed": 2
+        }
+      },
+      {
+        "text": "把奢饰品装进我的背包里",
+        "scores": {
+          "greed": 3,
+          "emotion": 1
+        }
+      },
+      {
+        "text": "想穿什么穿什么，孤所穿的即是龙袍",
+        "scores": {
+          "authenticity": 3,
+          "emotion": 2
+        }
+      }
+    ]
+  },
+  {
+    "id": 13,
+    "text": "你最好的厚米结婚了，在他的婚礼现场，你会：",
+    "options": [
+      {
+        "text": "为兄弟的幸福潸然泪下感动大哭",
+        "scores": {
+          "brotherhood": 15,
+          "emotion": 3
+        }
+      },
+      {
+        "text": "随便拉个同性舌吻庆祝一下",
+        "scores": {
+          "authenticity": 2,
+          "greed": 2
+        }
+      },
+      {
+        "text": "和几个伴郎争夺第一伴郎的番位",
+        "scores": {
+          "greed": 2,
+          "brotherhood": 1
+        }
+      },
+      {
+        "text": "在现场和来往亲朋推杯换盏，兄弟的人脉就是你的人脉",
+        "scores": {
+          "career": 1,
+          "greed": 2
+        }
+      }
+    ]
+  },
+  {
+    "id": 14,
+    "text": "和几个朋友在KTV，众人让你开第一嗓，你决定唱：",
+    "options": [
+      {
+        "text": "《朝天门》",
+        "scores": {
+          "authenticity": 2,
+          "brotherhood": 10
+        }
+      },
+      {
+        "text": "《一挑五》",
+        "scores": {
+          "authenticity": 3,
+          "emotion": 1
+        }
+      },
+      {
+        "text": "《野狼disco》",
+        "scores": {
+          "career": 2,
+          "greed": 1
+        }
+      },
+      {
+        "text": "《做我的猫》",
+        "scores": {
+          "emotion": 3,
+          "greed": 4
+        }
+      }
+    ]
+  },
+  {
+    "id": 15,
+    "text": "说唱的蛋糕你要分多少：",
+    "options": [
+      {
+        "text": "整个蛋糕都是我的，别人没资格",
+        "scores": {
+          "greed": 15,
+          "authenticity": 12
+        }
+      },
+      {
+        "text": "和我的homie一块吃",
+        "scores": {
+          "brotherhood": 2,
+          "career": 1
+        }
+      },
+      {
+        "text": "我也配？",
+        "scores": {
+          "emotion": 2,
+          "career": -1
+        }
+      },
+      {
+        "text": "我女友说对蛋糕过敏",
+        "scores": {
+          "emotion": 3,
+          "greed": 2,
+          "authenticity": 1
+        }
+      }
+    ]
+  },
+  {
+    "id": 16,
+    "text": "团队里两个兄弟的Beef闹很大，作为两人的好哥们，你会：",
+    "options": [
+      {
+        "text": "直接站在一方的高地上批判另一方",
+        "scores": {
+          "authenticity": 15,
+          "brotherhood": -1
+        }
+      },
+      {
+        "text": "和稀泥你们不要再打啦",
+        "scores": {
+          "brotherhood": -10,
+          "emotion": 1
+        }
+      },
+      {
+        "text": "感叹风花雪月世事无常不阴不阳蹭热度",
+        "scores": {
+          "greed": 3,
+          "career": 2
+        }
+      },
+      {
+        "text": "事不关己高高挂起趁机宣传自己的个人巡演",
+        "scores": {
+          "career": 3,
+          "greed": 2
+        }
+      }
+    ]
+  },
+  {
+    "id": 17,
+    "text": "节目上你的兄弟晋级了你遗憾淘汰，你的心情是：",
+    "options": [
+      {
+        "text": "真心为他高兴，自己技不如人下次再来",
+        "scores": {
+          "brotherhood": 12,
+          "career": 2
+        }
+      },
+      {
+        "text": "这节目有黑幕",
+        "scores": {
+          "authenticity": 2,
+          "emotion": 3,
+          "greed": 1
+        }
+      },
+      {
+        "text": "和他的合作曲等节目播出后再发",
+        "scores": {
+          "career": 1,
+          "greed": 3
+        }
+      },
+      {
+        "text": "我在淘汰席等你",
+        "scores": {
+          "brotherhood": -1,
+          "greed": 1,
+          "emotion": 2
+        }
+      }
+    ]
+  },
+  {
+    "id": 18,
+    "text": "凌晨两点，你一般在：",
+    "options": [
+      {
+        "text": "认真钻研你的说唱歌曲",
+        "scores": {
+          "career": 4,
+          "authenticity": 1
+        }
+      },
+      {
+        "text": "吃喝玩乐纸醉金迷一醉方休",
+        "scores": {
+          "greed": 3,
+          "emotion": 2
+        }
+      },
+      {
+        "text": "抖音快手小红书视频号一起刷",
+        "scores": {
+          "career": -1,
+          "emotion": 1
+        }
+      },
+      {
+        "text": "法！",
+        "scores": {
+          "authenticity": 4,
+          "emotion": 2
+        }
+      }
+    ]
+  },
+  {
+    "id": 19,
+    "text": "交往多年的女朋友要跟你分手，你认为她的理由是：",
+    "options": [
+      {
+        "text": "“就你那些破歌一辈子都走不起。”",
+        "scores": {
+          "career": 1,
+          "emotion": 15
+        }
+      },
+      {
+        "text": "“药给你放床头了，实在不行去男科看看吧。”",
+        "scores": {
+          "authenticity": 15,
+          "emotion": 2,
+          "greed": 12
+        }
+      },
+      {
+        "text": "“人可以丑但不能猪。”",
+        "scores": {
+          "emotion": 2,
+          "authenticity": -1
+        }
+      },
+      {
+        "text": "只有我甩别人的份她不会要跟我分手",
+        "scores": {
+          "authenticity": 3,
+          "greed": 3
+        }
+      }
+    ]
+  },
+  {
+    "id": 20,
+    "text": "假如你是一名美国rapper，扪心自问，你觉得你会死于：",
+    "options": [
+      {
+        "text": "haters挑衅你，你持枪反抗",
+        "scores": {
+          "authenticity": 3,
+          "brotherhood": 1
+        }
+      },
+      {
+        "text": "纯正好货",
+        "scores": {
+          "greed": 3,
+          "emotion": 2
+        }
+      },
+      {
+        "text": "站在你第一场体育馆演出台上听见808敲响",
+        "scores": {
+          "career": 15,
+          "emotion": 2
+        }
+      },
+      {
+        "text": "你解不开理还乱的东亚创伤",
+        "scores": {
+          "emotion": 4,
+          "authenticity": 2
+        }
+      }
+    ]
+  },
+  {
+    "id": 21,
+    "text": "你中了诅咒，今晚24:00过后你将和狱中的kris交换灵魂，直到刑满释放。你被允许说最后一句话，你选择：",
+    "options": [
+      {
+        "text": "对进去过的兄弟：有啥需要注意的么",
+        "scores": {
+          "brotherhood": 1,
+          "authenticity": 1
+        }
+      },
+      {
+        "text": "对狱警：我有一种预感，你们明天会考虑把Kris转到精神病院",
+        "scores": {
+          "authenticity": 2,
+          "emotion": 2
+        }
+      },
+      {
+        "text": "对kris：你想想清楚，帮我挣多少钱对得起我这十年",
+        "scores": {
+          "greed": 15,
+          "career": 10
+        }
+      },
+      {
+        "text": "对微博：明天开始我会被另一个人控制，再见，我爱你们",
+        "scores": {
+          "career": 2,
+          "emotion": 3
+        }
+      }
+    ]
+  },
+  {
+    "id": 22,
+    "text": "以下事件发展到哪一步会让你愤怒？",
+    "options": [
+      {
+        "text": "女朋友一天没理你",
+        "scores": {
+          "emotion": 1
+        }
+      },
+      {
+        "text": "女朋友一天没理你，和你兄弟在一起了",
+        "scores": {
+          "brotherhood": -1,
+          "emotion": 3
+        }
+      },
+      {
+        "text": "女朋友一天没理你，和你兄弟在一起了，女朋友把你的demo泄露给兄弟，兄弟靠这首歌大火",
+        "scores": {
+          "career": -2,
+          "brotherhood": -2
+        }
+      },
+      {
+        "text": "女朋友一天没理你，和你兄弟在一起了，女朋友把你的demo泄露给兄弟，兄弟靠这首歌大火，你发现兄弟唱得更好听，循环上了",
+        "scores": {
+          "authenticity": 3,
+          "career": 1
+        }
+      },
+      {
+        "text": "女朋友一天没理你，和你兄弟在一起了，女朋友把你的demo泄露给兄弟，兄弟靠这首歌大火，你发现兄弟唱得更好听，循环上了。兄弟在万人体育场说：其实我有一个对不起的人，细节不方便说了，My bad，但你在我心里永远是那个位置",
+        "scores": {
+          "career": 1,
+          "brotherhood": 10,
+          "authenticity": 2
+        }
+      }
+    ]
+  }
+]
