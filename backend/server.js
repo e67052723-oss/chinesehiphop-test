@@ -17,6 +17,12 @@ app.get('/', (req, res) => {
     res.send('Rapper Matching Test API is running.');
 });
 
-app.listen(PORT, () => {
-    console.log(`Server is running on http://localhost:${PORT}`);
-});
+// 导出 app 供 Vercel 使用
+module.exports = app;
+
+// 仅在本地开发环境启动服务
+if (process.env.NODE_ENV !== 'production') {
+    app.listen(PORT, () => {
+        console.log(`Server is running on http://localhost:${PORT}`);
+    });
+}
