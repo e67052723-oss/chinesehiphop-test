@@ -3,7 +3,7 @@ import { Button, Progress, Spin, Typography } from 'antd';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 
-// 导入本地数据
+// 纯前端化：直接导入本地数据
 import questionsData from '../data/questions.json';
 import rappersData from '../data/rappers.json';
 
@@ -22,39 +22,15 @@ export default function Test() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    // 直接从本地加载题目
-    setQuestions(questionsData);
-    setIsLoading(false);
+    // 模拟加载效果，实际直接从导入的数据获取
+    setTimeout(() => {
+      setQuestions(questionsData);
+      setIsLoading(false);
+    }, 500);
   }, []);
 
-  const handleOptionClick = (optionScores) => {
-    const newScores = { ...scores };
-    Object.keys(optionScores).forEach(key => {
-      newScores[key] = (newScores[key] || 0) + optionScores[key];
-    });
-    setScores(newScores);
-    setScoreHistory([...scoreHistory, newScores]);
-
-    if (currentIndex < questions.length - 1) {
-      setCurrentIndex(currentIndex + 1);
-    } else {
-      calculateResult(newScores);
-    }
-  };
-
-  const handleBack = () => {
-    if (currentIndex > 0) {
-      const prevScores = scoreHistory[currentIndex - 1];
-      setScores(prevScores);
-      setScoreHistory(scoreHistory.slice(0, -1));
-      setCurrentIndex(currentIndex - 1);
-    }
-  };
-
+  // 匹配逻辑适配（搬运自 backend/routes/api.js）
   const calculateResult = (finalScores) => {
-    setIsLoading(true);
-    
-    // 复刻后端的匹配逻辑
     const MAX_SCORES = {
         career: 83,
         emotion: 91,
@@ -101,25 +77,41 @@ export default function Test() {
     const maxPossibleDistance = 50000;
     let matchPctNum = (1 - Math.sqrt(minDistance / maxPossibleDistance)) * 100;
     
-    // 保底逻辑
     if (matchPctNum > 99) matchPctNum = 99.2;
     if (matchPctNum < 85) {
         matchPctNum = 85 + Math.random() * 10;
     }
 
-    const matchPercentage = matchPctNum.toFixed(1);
+    return {
+        rapper: bestMatch,
+        matchPercentage: matchPctNum.toFixed(1)
+    };
+  };
 
-    // 模拟一个小延时增强仪式感
-    setTimeout(() => {
-      navigate('/result', { 
-        state: { 
-          resultData: {
-            rapper: bestMatch,
-            matchPercentage: matchPercentage
-          } 
-        } 
-      });
-    }, 800);
+  const handleOptionClick = (optionScores) => {
+    const newScores = { ...scores };
+    Object.keys(optionScores).forEach(key => {
+      newScores[key] = (newScores[key] || 0) + optionScores[key];
+    });
+    setScores(newScores);
+    setScoreHistory([...scoreHistory, newScores]);
+
+    if (currentIndex < questions.length - 1) {
+      setCurrentIndex(currentIndex + 1);
+    } else {
+      // 测试结束，计算结果并跳转
+      const result = calculateResult(newScores);
+      navigate('/result', { state: result });
+    }
+  };
+
+  const handleBack = () => {
+    if (currentIndex > 0) {
+      const prevScores = scoreHistory[currentIndex - 1];
+      setScores(prevScores);
+      setScoreHistory(scoreHistory.slice(0, -1));
+      setCurrentIndex(currentIndex - 1);
+    }
   };
 
   if (isLoading || questions.length === 0) {

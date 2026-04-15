@@ -8,7 +8,7 @@ const { Title, Paragraph, Text } = Typography;
 export default function Result() {
   const location = useLocation();
   const navigate = useNavigate();
-  const resultData = location.state?.resultData;
+  const resultData = location.state;
 
   if (!resultData) {
     return (
