@@ -19,6 +19,8 @@ export default function Test() {
   const [scoreHistory, setScoreHistory] = useState([{
     career: 0, emotion: 0, authenticity: 0, greed: 0, brotherhood: 0
   }]);
+  const [userAnswers, setUserAnswers] = useState([]);
+  const [userAnswersHistory, setUserAnswersHistory] = useState([[]]);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -30,7 +32,7 @@ export default function Test() {
   }, []);
 
   // 匹配逻辑适配（搬运自 backend/routes/api.js）
-  const calculateResult = (finalScores) => {
+  const calculateResult = (finalScores, finalAnswers) => {
     const MAX_SCORES = {
         career: 83,
         emotion: 91,
@@ -57,7 +59,22 @@ export default function Test() {
     let bestMatch = null;
     let minDistance = Infinity;
 
-    rappersData.forEach(rapper => {
+    // 硬性过滤逻辑
+    let filteredRappers = [...rappersData];
+    
+    // 第6题排除逻辑：如果第6题没有选第1个选项(A)，排除“李大奔BENZO”
+    // 注意：questions[5] 是第6题，索引从0开始
+    if (finalAnswers[5] !== undefined && finalAnswers[5] !== 0) {
+        filteredRappers = filteredRappers.filter(r => r.name !== "李大奔BENZO");
+    }
+
+    // 第14题排除逻辑：如果第14题选了第2个选项(B)，排除“王以太”和“谢宇杰”
+    // 注意：questions[13] 是第14题
+    if (finalAnswers[13] === 1) {
+        filteredRappers = filteredRappers.filter(r => r.name !== "王以太" && r.name !== "谢宇杰");
+    }
+
+    filteredRappers.forEach(rapper => {
         let distance = 0;
         const eScores = rapper.expected_scores;
         const dimensions = ['career', 'emotion', 'authenticity', 'greed', 'brotherhood'];
@@ -88,19 +105,24 @@ export default function Test() {
     };
   };
 
-  const handleOptionClick = (optionScores) => {
+  const handleOptionClick = (optionScores, optionIndex) => {
     const newScores = { ...scores };
     Object.keys(optionScores).forEach(key => {
       newScores[key] = (newScores[key] || 0) + optionScores[key];
     });
+    
+    const newAnswers = [...userAnswers, optionIndex];
+    
     setScores(newScores);
     setScoreHistory([...scoreHistory, newScores]);
+    setUserAnswers(newAnswers);
+    setUserAnswersHistory([...userAnswersHistory, newAnswers]);
 
     if (currentIndex < questions.length - 1) {
       setCurrentIndex(currentIndex + 1);
     } else {
       // 测试结束，计算结果并跳转
-      const result = calculateResult(newScores);
+      const result = calculateResult(newScores, newAnswers);
       navigate('/result', { state: result });
     }
   };
@@ -108,8 +130,11 @@ export default function Test() {
   const handleBack = () => {
     if (currentIndex > 0) {
       const prevScores = scoreHistory[currentIndex - 1];
+      const prevAnswers = userAnswersHistory[currentIndex - 1];
       setScores(prevScores);
       setScoreHistory(scoreHistory.slice(0, -1));
+      setUserAnswers(prevAnswers);
+      setUserAnswersHistory(userAnswersHistory.slice(0, -1));
       setCurrentIndex(currentIndex - 1);
     }
   };
@@ -175,7 +200,7 @@ export default function Test() {
                 >
                   <Button 
                     block 
-                    onClick={() => handleOptionClick(opt.scores)}
+                    onClick={() => handleOptionClick(opt.scores, idx)}
                     style={{
                       height: 'auto',
                       minHeight: '62px',
