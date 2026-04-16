@@ -31,7 +31,7 @@ export default function Test() {
     }, 500);
   }, []);
 
-  // 匹配逻辑适配（搬运自 backend/routes/api.js）
+  // 匹配逻辑适配
   const calculateResult = (finalScores, finalAnswers) => {
     const MAX_SCORES = {
         career: 83,
@@ -56,32 +56,37 @@ export default function Test() {
         brotherhood: normalize(finalScores.brotherhood || 0, MAX_SCORES.brotherhood)
     };
 
-    let bestMatch = null;
-    let minDistance = Infinity;
-
-    // 硬性过滤逻辑
+    // --- 筛选与匹配逻辑 ---
     let filteredRappers = [...rappersData];
     
-    // 第6题排除逻辑：如果第6题没有选第1个选项(A)，排除“李大奔BENZO”
-    // 注意：questions[5] 是第6题，索引从0开始
-    if (finalAnswers[5] !== undefined && finalAnswers[5] !== 0) {
-        filteredRappers = filteredRappers.filter(r => r.name !== "李大奔BENZO");
+    // 排除逻辑 (Index 转换: 第N题 -> index N-1; 选项 A/B/C/D -> index 0/1/2/3)
+    
+    // Q1 Option B (index 1) -> 排除 MulaSakee(r7), 李京泽(r4), PGone(r10)
+    if (finalAnswers[0] === 1) {
+        filteredRappers = filteredRappers.filter(r => !['r7', 'r4', 'r10'].includes(r.id));
     }
 
-    // 第4题排除逻辑：如果第4题选了第3个选项(C)，排除王以太、Rapeter、翁杰Winjay、盛宇
-    // 注意：questions[3] 是第4题
-    if (finalAnswers[3] === 2) {
-        const excludedNames = ["王以太", "Rapeter", "翁杰Winjay", "盛宇"];
-        filteredRappers = filteredRappers.filter(r => !excludedNames.includes(r.name));
+    // Q2 Option B (index 1) -> 排除 MulaSakee(r7)
+    if (finalAnswers[1] === 1) {
+        filteredRappers = filteredRappers.filter(r => r.id !== 'r7');
+    }
+    
+    // Q4 Option D (index 3) -> 排除 MulaSakee(r7), 李京泽(r4), 弹壳(r13)
+    if (finalAnswers[3] === 3) {
+        filteredRappers = filteredRappers.filter(r => !['r7', 'r4', 'r13'].includes(r.id));
     }
 
-    // 第14题排除逻辑：如果第14题选了第2个选项(B)，排除“王以太”和“谢宇杰”
-    // 注意：questions[13] 是第14题
+    // Q20 Option C (index 2) -> 排除 MulaSakee(r7), PGone(r10)
+    if (finalAnswers[19] === 2) {
+        filteredRappers = filteredRappers.filter(r => !['r7', 'r10'].includes(r.id));
+    }
+
+    // Q14 Option B (index 1) -> 排除 王以太(r16), 谢宇杰(r15)
     if (finalAnswers[13] === 1) {
-        filteredRappers = filteredRappers.filter(r => r.name !== "王以太" && r.name !== "谢宇杰");
+        filteredRappers = filteredRappers.filter(r => !['r16', 'r15'].includes(r.id));
     }
 
-    filteredRappers.forEach(rapper => {
+    const rapperDistances = filteredRappers.map(rapper => {
         let distance = 0;
         const eScores = rapper.expected_scores;
         const dimensions = ['career', 'emotion', 'authenticity', 'greed', 'brotherhood'];
@@ -92,14 +97,48 @@ export default function Test() {
             distance += Math.pow(uVal - rVal, 2);
         });
 
-        if (distance < minDistance) {
-            minDistance = distance;
-            bestMatch = rapper;
+        let finalDistance = Math.sqrt(distance);
+
+        // --- 概率加成/降低逻辑 (距离越小匹配度越高) ---
+        // Q2 Option B (index 1) -> 增加 Asen(r23) 概率
+        if (finalAnswers[1] === 1 && rapper.id === 'r23') finalDistance -= 30;
+        
+        // Q3 Option B (index 1) -> 增加 李京泽(r4), 弹壳(r13) 概率
+        if (finalAnswers[2] === 1 && (rapper.id === 'r4' || rapper.id === 'r13')) finalDistance -= 40;
+        
+        // Q14 Option B (index 1) -> 增加 盛宇(r14), 刘聪(r24) 概率
+        if (finalAnswers[13] === 1 && (rapper.id === 'r14' || rapper.id === 'r24')) finalDistance -= 40;
+
+        // Q11 Option A (index 10) -> 增加 KenRobb(r20) 概率
+        if (finalAnswers[10] === 0 && rapper.id === 'r20') finalDistance -= 40;
+
+        // Q2 Option C (index 1) -> 增加 MulaSakee(r7) 概率
+        if (finalAnswers[1] === 2 && rapper.id === 'r7') finalDistance -= 40;
+
+        // Q12 Option C (index 11) -> 增加 Gali(r1) 概率
+        if (finalAnswers[11] === 2 && rapper.id === 'r1') finalDistance -= 40;
+
+        // Q17 Option A (index 16) -> 增加 高天佐(r22), 翁杰(r25), Rapeter(r11) 概率
+        if (finalAnswers[16] === 0 && (rapper.id === 'r22' || rapper.id === 'r25' || rapper.id === 'r11')) {
+            finalDistance -= 40;
         }
+
+        // Q6 Not Option A (index 0) -> 李大奔(r2) 概率降低，但仍保留概率
+        if (finalAnswers[5] !== undefined && finalAnswers[5] !== 0 && rapper.id === 'r2') {
+            finalDistance += 25;
+        }
+
+        return { ...rapper, distance: finalDistance };
     });
 
-    const maxPossibleDistance = 50000;
-    let matchPctNum = (1 - Math.sqrt(minDistance / maxPossibleDistance)) * 100;
+    rapperDistances.sort((a, b) => a.distance - b.distance);
+    const bestMatch = rapperDistances[0];
+
+    // 默认如果过滤后为空（极端情况），回退到原始数据
+    if (!bestMatch) return { rapper: rappersData[0], matchPercentage: '85.0' };
+
+    const maxPossibleDistance = 10000; 
+    let matchPctNum = (1 - Math.sqrt(bestMatch.distance / maxPossibleDistance)) * 100;
     
     if (matchPctNum > 99) matchPctNum = 99.2;
     if (matchPctNum < 85) {
