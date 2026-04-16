@@ -65,9 +65,9 @@
         ],
         "expected_scores": {
             "career": 85,
-            "emotion": 30,
+            "emotion": 60,
             "authenticity": 65,
-            "greed": 120,
+            "greed": 90,
             "brotherhood": 45
         }
     },
@@ -83,8 +83,8 @@
         ],
         "expected_scores": {
             "career": 30,
-            "emotion": 0,
-            "authenticity": 120,
+            "emotion": 40,
+            "authenticity": 100,
             "greed": 50,
             "brotherhood": 20
         }
@@ -120,9 +120,9 @@
         "expected_scores": {
             "career": 80,
             "emotion": 60,
-            "authenticity": 60,
+            "authenticity": 20,
             "greed": 85,
-            "brotherhood": 45
+            "brotherhood": 30
         }
     },
     {
@@ -193,7 +193,7 @@
             "career": 50,
             "emotion": 60,
             "authenticity": 110,
-            "greed": 30,
+            "greed": 70,
             "brotherhood": 70
         }
     },
@@ -208,11 +208,11 @@
             "闪亮"
         ],
         "expected_scores": {
-            "career": 75,
+            "career": 100,
             "emotion": 70,
             "authenticity": 70,
             "greed": 35,
-            "brotherhood": 60
+            "brotherhood": 80
         }
     },
     {
@@ -321,6 +321,42 @@
             "authenticity": 100,
             "greed": 90,
             "brotherhood": 110
+        }
+    },
+    {
+        "id": "r24",
+        "name": "刘聪KEY.L",
+        "description": "江湖流派的领袖，词曲间透着看破世俗的洒脱与坚定。虽然身处名利场，却始终守着“如是我闻”的禅意与街道的真实。",
+        "traits": [
+            "江湖",
+            "禅意",
+            "街道",
+            "可靠"
+        ],
+        "expected_scores": {
+            "career": 90,
+            "emotion": 80,
+            "authenticity": 115,
+            "greed": 15,
+            "brotherhood": 120
+        }
+    },
+    {
+        "id": "r25",
+        "name": "翁杰Winjay",
+        "description": "来自福建莆田的新生代“才子”，用方言和洗脑旋律敲开大众耳朵。外表阳光活泼，内心却藏着细腻的艺术感和对未来的野心。",
+        "traits": [
+            "洗脑",
+            "方言",
+            "才子",
+            "松弛"
+        ],
+        "expected_scores": {
+            "career": 75,
+            "emotion": 90,
+            "authenticity": 65,
+            "greed": 45,
+            "brotherhood": 70
         }
     }
 ]

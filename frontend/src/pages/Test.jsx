@@ -68,6 +68,13 @@ export default function Test() {
         filteredRappers = filteredRappers.filter(r => r.name !== "李大奔BENZO");
     }
 
+    // 第4题排除逻辑：如果第4题选了第3个选项(C)，排除王以太、Rapeter、翁杰Winjay、盛宇
+    // 注意：questions[3] 是第4题
+    if (finalAnswers[3] === 2) {
+        const excludedNames = ["王以太", "Rapeter", "翁杰Winjay", "盛宇"];
+        filteredRappers = filteredRappers.filter(r => !excludedNames.includes(r.name));
+    }
+
     // 第14题排除逻辑：如果第14题选了第2个选项(B)，排除“王以太”和“谢宇杰”
     // 注意：questions[13] 是第14题
     if (finalAnswers[13] === 1) {
