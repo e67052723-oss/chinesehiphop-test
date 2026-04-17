@@ -123,6 +123,23 @@ export default function Test() {
             finalDistance -= 40;
         }
 
+        // --- 新增逻辑 ---
+        
+        // Q10 Option B (index 9, answer 1) -> 增加 Asen(r23) 概率
+        if (finalAnswers[9] === 1 && rapper.id === 'r23') finalDistance -= 40;
+
+        // Q10 Option D (index 9, answer 3) -> 增加 法老(r21), 刘聪(r24) 概率
+        if (finalAnswers[9] === 3 && (rapper.id === 'r21' || rapper.id === 'r24')) finalDistance -= 40;
+
+        // Q11 Option D (index 10, answer 3) -> 增加 高天佐(r22) 概率
+        if (finalAnswers[10] === 3 && rapper.id === 'r22') finalDistance -= 40;
+
+        // Q7 Option D (index 6, answer 3) -> 增加 王以太(r16) 概率
+        if (finalAnswers[6] === 3 && rapper.id === 'r16') finalDistance -= 40;
+
+        // Q11 Option B (index 10, answer 1) -> 增加 谢宇杰(r15) 概率
+        if (finalAnswers[10] === 1 && rapper.id === 'r15') finalDistance -= 40;
+
         // Q6 Not Option A (index 0) -> 李大奔(r2) 概率降低，但仍保留概率
         if (finalAnswers[5] !== undefined && finalAnswers[5] !== 0 && rapper.id === 'r2') {
             finalDistance += 25;
